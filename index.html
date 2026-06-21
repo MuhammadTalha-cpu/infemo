@@ -1,11 +1,166 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Infemo — Master Languages at Your Pace" />
     <title>Infemo</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Google Fonts — Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <!-- Screen CSS -->
+    <link rel="stylesheet" href="css/screens/auth.css" />
+    <link rel="stylesheet" href="css/screens/welcome.css" />
+    <link rel="stylesheet" href="css/screens/language-select.css" />
+    <link rel="stylesheet" href="css/screens/dashboard.css" />
+    <link rel="stylesheet" href="css/screens/phonetics.css" />
+    <link rel="stylesheet" href="css/screens/levels.css" />
+    <link rel="stylesheet" href="css/screens/lesson.css" />
+    <link rel="stylesheet" href="css/screens/exam.css" />
+    <link rel="stylesheet" href="css/screens/flashcards.css" />
+    <link rel="stylesheet" href="css/screens/vocabulary.css" />
+    <link rel="stylesheet" href="css/screens/grammar.css" />
+    <link rel="stylesheet" href="css/screens/stories.css" />
+    <link rel="stylesheet" href="css/screens/journal.css" />
+    <link rel="stylesheet" href="css/screens/progress.css" />
+    <link rel="stylesheet" href="css/screens/settings.css" />
   </head>
+
   <body>
-    <h1>Hello Infemo</h1>
+    <div id="app">
+      <!-- SCREEN: Auth -->
+      <div id="screen-auth" class="screen"></div>
+
+      <!-- SCREEN: Welcome -->
+      <div id="screen-welcome" class="screen"></div>
+
+      <!-- SCREEN: Language Selection -->
+      <div id="screen-language-select" class="screen"></div>
+
+      <!-- SCREEN: Dashboard -->
+      <div id="screen-dashboard" class="screen"></div>
+
+      <!-- SCREEN: Phonetics -->
+      <div id="screen-phonetics" class="screen"></div>
+
+      <!-- SCREEN: Levels -->
+      <div id="screen-levels" class="screen"></div>
+
+      <!-- SCREEN: Lesson -->
+      <div id="screen-lesson" class="screen"></div>
+
+      <!-- SCREEN: Exam Simulator -->
+      <div id="screen-exam" class="screen"></div>
+
+      <!-- SCREEN: Flashcards -->
+      <div id="screen-flashcards" class="screen"></div>
+
+      <!-- SCREEN: Vocabulary Book -->
+      <div id="screen-vocabulary" class="screen"></div>
+
+      <!-- SCREEN: Grammar Handbook -->
+      <div id="screen-grammar" class="screen"></div>
+
+      <!-- SCREEN: Stories & Poems -->
+      <div id="screen-stories" class="screen"></div>
+
+      <!-- SCREEN: Journal -->
+      <div id="screen-journal" class="screen"></div>
+
+      <!-- SCREEN: My Progress -->
+      <div id="screen-progress" class="screen"></div>
+
+      <!-- SCREEN: Settings -->
+      <div id="screen-settings" class="screen"></div>
+    </div>
+
+    <!-- Utilities (load first) -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/date.js"></script>
+    <script src="js/utils/typewriter.js"></script>
+    <script src="js/utils/spaced-rep.js"></script>
+    <script src="js/utils/exercises.js"></script>
+    <script src="js/utils/mistake-tracker.js"></script>
+    <script src="js/utils/speech-recognition.js"></script>
+    <script src="js/utils/daily-challenge.js"></script>
+
+    <!-- Core (load before screens) -->
+    <script src="js/state.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/router.js"></script>
+
+    <!-- Data -->
+    <script src="data/quotes.js"></script>
+    <script src="data/languages.js"></script>
+    <script src="data/levelSystems.js"></script>
+    <script src="data/examFormats.js"></script>
+    <script src="data/de/phonetics.js"></script>
+    <script src="data/de/grammar.js"></script>
+    <script src="data/de/a1/vocabulary.js"></script>
+    <script src="data/de/a1/topics.js"></script>
+    <script src="data/de/a1/stories.js"></script>
+    <script src="data/de/a1/exam.js"></script>
+    <script src="data/de/a2/vocabulary.js"></script>
+    <script src="data/de/a2/topics.js"></script>
+    <script src="data/de/a2/stories.js"></script>
+    <script src="data/de/a2/exam.js"></script>
+    <script src="data/de/b1/vocabulary.js"></script>
+    <script src="data/de/b1/topics.js"></script>
+    <script src="data/de/b1/stories.js"></script>
+    <script src="data/de/b1/exam.js"></script>
+    <script src="data/de/b2/vocabulary.js"></script>
+    <script src="data/de/b2/topics.js"></script>
+    <script src="data/de/b2/stories.js"></script>
+    <script src="data/de/b2/exam.js"></script>
+    <script src="data/de/c1/vocabulary.js"></script>
+    <script src="data/de/c1/topics.js"></script>
+    <script src="data/de/c1/stories.js"></script>
+    <script src="data/de/c1/exam.js"></script>
+    <script src="data/de/c2/vocabulary.js"></script>
+    <script src="data/de/c2/topics.js"></script>
+    <script src="data/de/c2/stories.js"></script>
+    <script src="data/de/c2/exam.js"></script>
+
+    <!-- Screens -->
+    <script src="js/screens/auth.js"></script>
+    <script src="js/screens/welcome.js"></script>
+    <script src="js/screens/language-select.js"></script>
+    <script src="js/screens/dashboard.js"></script>
+    <script src="js/screens/phonetics.js"></script>
+    <script src="js/screens/levels.js"></script>
+    <script src="js/screens/lesson.js"></script>
+    <script src="js/screens/exam.js"></script>
+    <script src="js/screens/flashcards.js"></script>
+    <script src="js/screens/vocabulary.js"></script>
+    <script src="js/screens/grammar.js"></script>
+    <script src="js/screens/stories.js"></script>
+    <script src="js/screens/journal.js"></script>
+    <script src="js/screens/progress.js"></script>
+    <script src="js/screens/settings.js"></script>
+
+    <!-- App Entry Point (always last) -->
+    <script src="js/app.js"></script>
   </body>
 </html>
