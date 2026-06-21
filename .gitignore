@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Environment files (keep private keys safe)
+.env
+.env.local
+.env.production
+
+# VS Code settings
+.vscode/settings.json
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
