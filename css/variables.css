@@ -1,0 +1,181 @@
+/* ============================================================
+   INFEMO — CSS VARIABLES
+   The single source of truth for all design tokens.
+   Every color, font, spacing, and shadow in the app
+   comes from this file.
+   ============================================================ */
+
+/* ── LIGHT THEME (default) ─────────────────────────────── */
+:root {
+  /* Brand */
+  --primary: #3b5bdb;
+  --primary-hover: #2f4ac4;
+  --primary-light: #eef2ff;
+  --primary-rgb: 59, 91, 219;
+
+  /* Page & Surface */
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #f8f9fc;
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e8ebf4;
+
+  /* Text */
+  --text-primary: #0d0f1a;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+
+  /* Borders & Dividers */
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  --divider: #f3f4f6;
+
+  /* Semantic */
+  --success: #22c55e;
+  --success-bg: #f0fdf4;
+  --warning: #f59e0b;
+  --warning-bg: #fffbeb;
+  --error: #ef4444;
+  --error-bg: #fef2f2;
+  --info: #3b82f6;
+  --info-bg: #eff6ff;
+
+  /* Level Colors — A1 through C2 */
+  --level-a1: #16a34a;
+  --level-a1-bg: #f0fdf4;
+  --level-a2: #0891b2;
+  --level-a2-bg: #ecfeff;
+  --level-b1: #2563eb;
+  --level-b1-bg: #eff6ff;
+  --level-b2: #7c3aed;
+  --level-b2-bg: #f5f3ff;
+  --level-c1: #ea580c;
+  --level-c1-bg: #fff7ed;
+  --level-c2: #dc2626;
+  --level-c2-bg: #fef2f2;
+
+  /* German Noun Gender Colors */
+  --gender-der: #3b82f6;
+  --gender-der-bg: #eff6ff;
+  --gender-die: #ef4444;
+  --gender-die-bg: #fef2f2;
+  --gender-das: #22c55e;
+  --gender-das-bg: #f0fdf4;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-modal:
+    0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  /* Font Sizes */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* Spacing — 4px base unit */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.12s ease;
+  --transition-base: 0.18s ease;
+  --transition-slow: 0.28s ease;
+
+  /* Layout */
+  --sidebar-width: 200px;
+  --topbar-height: 60px;
+
+  /* Z-index Stack */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+/* ── DARK THEME ─────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* Page & Surface */
+  --bg: #0b0d17;
+  --surface: #141722;
+  --surface-2: #1a1e2e;
+  --sidebar-bg: #0f1120;
+  --sidebar-border: #1e2235;
+
+  /* Text */
+  --text-primary: #f1f3ff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-inverse: #0d0f1a;
+
+  /* Borders & Dividers */
+  --border: #252840;
+  --border-strong: #323654;
+  --divider: #1d1f2f;
+
+  /* Semantic — backgrounds adjusted for dark */
+  --success-bg: #052e16;
+  --warning-bg: #1c1400;
+  --error-bg: #2d0a0a;
+  --info-bg: #0c1a3d;
+  --primary-light: #1a2156;
+
+  /* Gender backgrounds adjusted for dark */
+  --gender-der-bg: #0c1a3d;
+  --gender-die-bg: #2d0a0a;
+  --gender-das-bg: #052e16;
+
+  /* Level backgrounds adjusted for dark */
+  --level-a1-bg: #052e16;
+  --level-a2-bg: #042028;
+  --level-b1-bg: #0c1a3d;
+  --level-b2-bg: #1e0a3d;
+  --level-c1-bg: #2d1200;
+  --level-c2-bg: #2d0a0a;
+
+  /* Shadows — stronger in dark mode */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.25);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.6), 0 8px 20px rgba(0, 0, 0, 0.3);
+}

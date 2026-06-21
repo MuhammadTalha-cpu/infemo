@@ -1,0 +1,464 @@
+/* ============================================================
+   INFEMO — ANIMATIONS
+   Every motion, transition, and keyframe animation.
+   Used across all screens and components.
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════
+   KEYFRAME DEFINITIONS
+   ══════════════════════════════════════════════════════════ */
+
+/* Fade in — used for overlays, tooltips, toasts */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade out */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide up — used for modals, cards appearing */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide down */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from right — used for toasts */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Spin — used for loading spinners */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse — used for audio button playing state */
+@keyframes pulse-audio {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.94);
+  }
+}
+
+/* Pulse ring — used for streak / achievement highlights */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(var(--primary-rgb), 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0);
+  }
+}
+
+/* Bounce — used for correct answer feedback */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Shake — used for wrong answer feedback */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+/* Scale in — used for badges, achievement unlocks */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Typewriter cursor blink */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Confetti fall — used on lesson completion */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Shimmer — used for skeleton loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Progress fill — animates progress bars on load */
+@keyframes progress-grow {
+  from {
+    width: 0%;
+  }
+}
+
+/* Float — subtle hover effect for feature cards */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SCREEN TRANSITIONS
+   Applied when navigating between screens
+   ══════════════════════════════════════════════════════════ */
+
+.screen.active {
+  animation: fade-in var(--transition-base);
+}
+
+.screen-enter {
+  animation: slide-up 0.22s ease;
+}
+
+/* ══════════════════════════════════════════════════════════
+   TYPEWRITER
+   Used on the Welcome screen
+   ══════════════════════════════════════════════════════════ */
+
+.typewriter-text {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  min-height: 2.8em;
+  display: block;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--primary);
+  margin-left: 2px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: blink 1s ease infinite;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FLASHCARD FLIP
+   3D card flip animation
+   ══════════════════════════════════════════════════════════ */
+
+.flip-card {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 480px;
+  height: 280px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  text-align: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: var(--primary-light);
+  border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+/* Flip hint text */
+.flip-hint {
+  position: absolute;
+  bottom: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  pointer-events: none;
+}
+
+.flip-hint svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   EXERCISE FEEDBACK ANIMATIONS
+   Correct answer = bounce, Wrong = shake
+   ══════════════════════════════════════════════════════════ */
+
+.answer-correct {
+  animation: bounce 0.5s ease;
+  border-color: var(--success) !important;
+  background-color: var(--success-bg) !important;
+  color: var(--success) !important;
+}
+
+.answer-wrong {
+  animation: shake 0.5s ease;
+  border-color: var(--error) !important;
+  background-color: var(--error-bg) !important;
+  color: var(--error) !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CONFETTI
+   Appears on lesson/topic completion
+   ══════════════════════════════════════════════════════════ */
+
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-toast);
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  animation: confetti-fall linear forwards;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SKELETON LOADING
+   Shown while content is loading from Firebase
+   ══════════════════════════════════════════════════════════ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-2) 25%,
+    var(--border) 50%,
+    var(--surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-text {
+  height: 14px;
+  margin-bottom: var(--space-2);
+}
+
+.skeleton-text-lg {
+  height: 20px;
+  margin-bottom: var(--space-3);
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ACHIEVEMENT BADGE UNLOCK
+   ══════════════════════════════════════════════════════════ */
+
+.achievement-unlock {
+  animation: scale-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.achievement-pulse {
+  animation: pulse-ring 1.5s ease infinite;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PROGRESS BAR ANIMATION
+   Animates when a progress bar first appears
+   ══════════════════════════════════════════════════════════ */
+
+.progress-fill-animated {
+  animation: progress-grow 0.8s ease both;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PAGE SECTION ENTRANCE
+   Cards and sections fade up when a screen loads
+   ══════════════════════════════════════════════════════════ */
+
+.entrance-1 {
+  animation: slide-up 0.3s ease 0.05s both;
+}
+.entrance-2 {
+  animation: slide-up 0.3s ease 0.1s both;
+}
+.entrance-3 {
+  animation: slide-up 0.3s ease 0.15s both;
+}
+.entrance-4 {
+  animation: slide-up 0.3s ease 0.2s both;
+}
+.entrance-5 {
+  animation: slide-up 0.3s ease 0.25s both;
+}
+.entrance-6 {
+  animation: slide-up 0.3s ease 0.3s both;
+}
+
+/* ══════════════════════════════════════════════════════════
+   UTILITY ANIMATION CLASSES
+   Apply directly to any element
+   ══════════════════════════════════════════════════════════ */
+
+.animate-fade-in {
+  animation: fade-in var(--transition-base);
+}
+.animate-slide-up {
+  animation: slide-up 0.25s ease;
+}
+.animate-slide-down {
+  animation: slide-down 0.25s ease;
+}
+.animate-scale-in {
+  animation: scale-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.animate-spin {
+  animation: spin 0.7s linear infinite;
+}
+.animate-bounce {
+  animation: bounce 0.5s ease;
+}
+.animate-shake {
+  animation: shake 0.5s ease;
+}
+.animate-float {
+  animation: float 3s ease infinite;
+}
