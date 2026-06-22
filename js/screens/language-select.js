@@ -1,4 +1,4 @@
-const LanguageSelectScreen = {
+var LanguageSelectScreen = {
   render() {
     const el = document.getElementById("screen-language-select");
     if (!el) return;

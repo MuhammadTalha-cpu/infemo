@@ -5,7 +5,7 @@
    hides all others, and calls the screen's render function.
    ============================================================ */
 
-const Router = {
+var Router = {
   /* ── Route Map ─────────────────────────────────────────
        Every hash maps to a screen div ID and the name of
        the JS object that has a render() function for it.

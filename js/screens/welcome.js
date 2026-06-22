@@ -1,4 +1,4 @@
-const WelcomeScreen = {
+var WelcomeScreen = {
   render() {
     const el = document.getElementById("screen-welcome");
     if (!el) return;

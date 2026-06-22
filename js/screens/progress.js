@@ -1,4 +1,4 @@
-const ProgressScreen = {
+var ProgressScreen = {
   render() {
     const el = document.getElementById("screen-progress");
     if (!el) return;

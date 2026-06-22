@@ -5,7 +5,7 @@
    prevent a flash of the wrong theme on page load.
    ============================================================ */
 
-const Theme = {
+var Theme = {
   /* ── init() ─────────────────────────────────────────────
        Called first thing in App.init() — before any
        rendering happens. Reads saved preference and applies

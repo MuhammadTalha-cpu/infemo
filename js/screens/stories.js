@@ -1,4 +1,4 @@
-const StoriesScreen = {
+var StoriesScreen = {
   render() {
     const el = document.getElementById("screen-stories");
     if (!el) return;

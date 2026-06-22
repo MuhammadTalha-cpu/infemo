@@ -1,4 +1,4 @@
-const VocabularyScreen = {
+var VocabularyScreen = {
   render() {
     const el = document.getElementById("screen-vocabulary");
     if (!el) return;

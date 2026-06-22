@@ -1,4 +1,4 @@
-const ExamScreen = {
+var ExamScreen = {
   render() {
     const el = document.getElementById("screen-exam");
     if (!el) return;

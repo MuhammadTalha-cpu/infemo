@@ -13,7 +13,7 @@
      Storage.clear()
    ============================================================ */
 
-const Storage = {
+var Storage = {
   /* ── KEY PREFIX ─────────────────────────────────────────
        All keys are prefixed with 'infemo_' automatically.
        This prevents conflicts with other apps on the same

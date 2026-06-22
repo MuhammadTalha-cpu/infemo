@@ -9,7 +9,7 @@
    AppState just holds the CURRENT SESSION's working data.
    ============================================================ */
 
-const AppState = {
+var AppState = {
   /* ── Authentication ─────────────────────────────────── */
   currentUser: null, // Firebase user object (or null if guest)
   isGuest: false, // true when using without an account

@@ -1,4 +1,4 @@
-const LessonScreen = {
+var LessonScreen = {
   render() {
     const el = document.getElementById("screen-lesson");
     if (!el) return;

@@ -1,4 +1,4 @@
-const LevelsScreen = {
+var LevelsScreen = {
   render() {
     const el = document.getElementById("screen-levels");
     if (!el) return;

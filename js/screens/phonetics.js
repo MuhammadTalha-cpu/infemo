@@ -1,4 +1,4 @@
-const PhoneticsScreen = {
+var PhoneticsScreen = {
   render() {
     const el = document.getElementById("screen-phonetics");
     if (!el) return;

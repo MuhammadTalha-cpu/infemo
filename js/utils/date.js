@@ -3,7 +3,7 @@
    Time-aware greetings, streak logic, and date formatting.
    ============================================================ */
 
-const DateUtils = {
+var DateUtils = {
   /* ── getGreeting() ──────────────────────────────────────
        Returns a time-aware greeting string.
        Morning:   5am  – 11:59am

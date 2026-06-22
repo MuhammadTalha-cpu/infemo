@@ -1,4 +1,4 @@
-const JournalScreen = {
+var JournalScreen = {
   render() {
     const el = document.getElementById("screen-journal");
     if (!el) return;

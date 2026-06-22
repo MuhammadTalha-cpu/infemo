@@ -1,4 +1,4 @@
-const GrammarScreen = {
+var GrammarScreen = {
   render() {
     const el = document.getElementById("screen-grammar");
     if (!el) return;

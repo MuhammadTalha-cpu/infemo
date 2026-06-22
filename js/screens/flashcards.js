@@ -1,4 +1,4 @@
-const FlashcardsScreen = {
+var FlashcardsScreen = {
   render() {
     const el = document.getElementById("screen-flashcards");
     if (!el) return;

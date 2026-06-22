@@ -1,4 +1,4 @@
-const DashboardScreen = {
+var DashboardScreen = {
   render() {
     const el = document.getElementById("screen-dashboard");
     if (!el) return;

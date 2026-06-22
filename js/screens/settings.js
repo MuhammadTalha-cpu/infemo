@@ -1,4 +1,4 @@
-const SettingsScreen = {
+var SettingsScreen = {
   render() {
     const el = document.getElementById("screen-settings");
     if (!el) return;
