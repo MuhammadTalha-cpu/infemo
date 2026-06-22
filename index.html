@@ -47,54 +47,56 @@
   </head>
 
   <body>
+    <!-- ░░ TOAST CONTAINER ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+    <!-- Toasts (achievement unlocks, save confirmations)   -->
+    <!-- are injected here by JS                            -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- ░░ SIDEBAR BACKDROP ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+    <!-- Dark overlay behind sidebar on mobile              -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+    <!-- ░░ APP ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
     <div id="app">
-      <!-- SCREEN: Auth -->
-      <div id="screen-auth" class="screen"></div>
+      <!-- ── Centered screens (no sidebar) ────────────── -->
 
-      <!-- SCREEN: Welcome -->
-      <div id="screen-welcome" class="screen"></div>
+      <div id="screen-auth" class="screen screen-centered"></div>
 
-      <!-- SCREEN: Language Selection -->
-      <div id="screen-language-select" class="screen"></div>
+      <div id="screen-welcome" class="screen screen-centered"></div>
 
-      <!-- SCREEN: Dashboard -->
+      <div id="screen-language-select" class="screen screen-centered"></div>
+
+      <!-- ── Dashboard screens (have sidebar) ─────────── -->
+
       <div id="screen-dashboard" class="screen"></div>
 
-      <!-- SCREEN: Phonetics -->
       <div id="screen-phonetics" class="screen"></div>
 
-      <!-- SCREEN: Levels -->
       <div id="screen-levels" class="screen"></div>
 
-      <!-- SCREEN: Lesson -->
       <div id="screen-lesson" class="screen"></div>
 
-      <!-- SCREEN: Exam Simulator -->
       <div id="screen-exam" class="screen"></div>
 
-      <!-- SCREEN: Flashcards -->
       <div id="screen-flashcards" class="screen"></div>
 
-      <!-- SCREEN: Vocabulary Book -->
       <div id="screen-vocabulary" class="screen"></div>
 
-      <!-- SCREEN: Grammar Handbook -->
       <div id="screen-grammar" class="screen"></div>
 
-      <!-- SCREEN: Stories & Poems -->
       <div id="screen-stories" class="screen"></div>
 
-      <!-- SCREEN: Journal -->
       <div id="screen-journal" class="screen"></div>
 
-      <!-- SCREEN: My Progress -->
       <div id="screen-progress" class="screen"></div>
 
-      <!-- SCREEN: Settings -->
       <div id="screen-settings" class="screen"></div>
     </div>
+    <!-- end #app -->
 
-    <!-- Utilities (load first) -->
+    <!-- ░░ JAVASCRIPT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+
+    <!-- Utilities — load first, everything else depends on them -->
     <script src="js/utils/storage.js"></script>
     <script src="js/utils/date.js"></script>
     <script src="js/utils/typewriter.js"></script>
@@ -104,14 +106,14 @@
     <script src="js/utils/speech-recognition.js"></script>
     <script src="js/utils/daily-challenge.js"></script>
 
-    <!-- Core (load before screens) -->
+    <!-- Core — load before screens -->
     <script src="js/state.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/audio.js"></script>
     <script src="js/firebase.js"></script>
     <script src="js/router.js"></script>
 
-    <!-- Data -->
+    <!-- Data files -->
     <script src="data/quotes.js"></script>
     <script src="data/languages.js"></script>
     <script src="data/levelSystems.js"></script>
@@ -160,7 +162,7 @@
     <script src="js/screens/progress.js"></script>
     <script src="js/screens/settings.js"></script>
 
-    <!-- App Entry Point (always last) -->
+    <!-- App entry point — always absolutely last -->
     <script src="js/app.js"></script>
   </body>
 </html>

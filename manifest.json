@@ -1,0 +1,10 @@
+{
+  "name": "Infemo",
+  "short_name": "Infemo",
+  "description": "Master Languages at Your Pace",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F4F6FB",
+  "theme_color": "#3B5BDB",
+  "icons": []
+}
