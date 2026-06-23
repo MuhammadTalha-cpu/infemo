@@ -1,0 +1,210 @@
+/* ============================================================
+   INFEMO — LANGUAGE SELECTION SCREEN
+   ============================================================ */
+
+/* ── Screen Layout ──────────────────────────────────────── */
+#screen-language-select {
+  background: linear-gradient(
+    160deg,
+    var(--primary-light) 0%,
+    var(--bg) 50%,
+    #eef0ff 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+#screen-language-select::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(59, 91, 219, 0.05);
+  pointer-events: none;
+}
+
+/* ── Language Card Container ────────────────────────────── */
+.lang-select-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-8) var(--space-6);
+  width: 100%;
+  max-width: 580px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+  animation: slide-up 0.3s ease;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.lang-select-logo {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.3px;
+}
+
+.lang-select-heading {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+/* ── Language Grid ──────────────────────────────────────── */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+/* ── Individual Language Card ───────────────────────────── */
+.lang-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+  position: relative;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base),
+    opacity var(--transition-base);
+  min-height: 110px;
+  justify-content: center;
+}
+
+/* Active language card */
+.lang-card-active {
+  cursor: pointer;
+  background-color: var(--surface);
+}
+
+.lang-card-active:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.lang-card-active:active {
+  transform: translateY(0);
+}
+
+/* Selected state — when a language is highlighted */
+.lang-card-selected {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.15);
+}
+
+/* Coming soon card */
+.lang-card-soon {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background-color: var(--surface-2);
+}
+
+/* ── Card Content ───────────────────────────────────────── */
+.lang-card-flag {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.lang-card-code {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.lang-card-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.lang-card-range {
+  font-size: var(--text-xs);
+  color: var(--primary);
+  font-weight: var(--weight-medium);
+}
+
+/* Coming soon badge */
+.lang-card-soon-badge {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: 9px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 2px 5px;
+}
+
+/* Progress badge for returning users */
+.lang-card-progress {
+  font-size: var(--text-xs);
+  color: var(--success);
+  font-weight: var(--weight-semibold);
+  background-color: var(--success-bg);
+  border-radius: var(--radius-full);
+  padding: 1px 6px;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.lang-select-footer {
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.lang-select-footer i {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .lang-select-card {
+    padding: var(--space-6) var(--space-4) var(--space-5);
+    box-shadow: none;
+    border: none;
+  }
+
+  .lang-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .lang-card {
+    min-height: 95px;
+  }
+}
+
+@media (max-width: 360px) {
+  .lang-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
