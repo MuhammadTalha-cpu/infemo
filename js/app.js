@@ -85,13 +85,8 @@ const App = {
         AppState.progress = { ...AppState.progress, ...guestData.progress };
       }
 
-      // If they already picked a language, go straight to dashboard
-      if (lang) {
-        AppState.selectedLanguage = lang;
-        Router.navigate("#dashboard");
-      } else {
-        Router.navigate("#language-select");
-      }
+      // All users — guest or logged-in — go through Welcome first
+      Router.navigate("#welcome");
       return;
     }
 

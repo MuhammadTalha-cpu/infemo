@@ -229,8 +229,8 @@ var AuthScreen = {
     // Update app state
     AppState.setGuest();
 
-    // Navigate to language selection
-    Router.navigate("#language-select");
+    // All users go through Welcome first
+    Router.navigate("#welcome");
   },
 
   /* ── handleGoogle() ─────────────────────────────────── */
