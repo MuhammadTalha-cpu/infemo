@@ -98,12 +98,12 @@ var Sidebar = {
     // Bottom section — differs for guest vs logged-in
     const bottomHTML = isGuest
       ? `<button class="btn btn-secondary btn-sm btn-full sidebar-login-btn"
-                        onclick="Router.navigate('#auth'); App.closeMobileSidebar();">
+                        onclick="FirebaseAuth.showUpgradeModal(); App.closeMobileSidebar();">
                    <i data-lucide="log-in"></i>
                    Login / Create Account
                </button>`
       : `<div class="sidebar-signout"
-                    onclick="Router.navigate('#settings'); App.closeMobileSidebar();">
+                    onclick="FirebaseAuth.showSignOutConfirm(); App.closeMobileSidebar();">
                    <i data-lucide="log-out"></i>
                    <span>Sign Out</span>
                </div>`;

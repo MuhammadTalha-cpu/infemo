@@ -30,6 +30,9 @@ const App = {
       selectedLanguage: Storage.get(Storage.KEYS.LANGUAGE, null),
     });
 
+    /* 4. Initialize Firebase Auth listener */
+    if (window.FirebaseAuth) FirebaseAuth.init();
+
     /* 4. Initialize the Router
               Sets up the hashchange listener so all future
               navigation works automatically. */

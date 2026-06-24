@@ -235,12 +235,22 @@ var AuthScreen = {
 
   /* ── handleGoogle() ─────────────────────────────────── */
   handleGoogle() {
-    // Firebase Google auth — connected in Phase 9
-    // For now show an informational message
-    this.showError(
-      "Google sign-in requires Firebase setup (coming in Phase 9). " +
-        'Use "Continue without Account" to test the app now.',
-    );
+    var btn = document.getElementById("auth-google-btn");
+    if (btn) {
+      btn.disabled = true;
+      btn.classList.add("btn-loading");
+    }
+    this.hideError();
+
+    FirebaseAuth.signInWithGoogle().then(function (result) {
+      if (!result.success) {
+        if (btn) {
+          btn.disabled = false;
+          btn.classList.remove("btn-loading");
+        }
+        AuthScreen.showError(result.message);
+      }
+    });
   },
 
   /* ── handleEmailSubmit() ────────────────────────────── */
@@ -267,12 +277,39 @@ var AuthScreen = {
       return;
     }
 
-    // Firebase email auth — connected in Phase 9
-    // For now show an informational message
-    this.showError(
-      "Email sign-in requires Firebase setup (coming in Phase 9). " +
-        'Use "Continue without Account" to test the app now.',
-    );
+    /* Connect to Firebase */
+    var submitBtn = document.getElementById("auth-submit-btn");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add("btn-loading");
+    }
+    this.hideError();
+
+    var self = this;
+
+    if (this.formMode === "register") {
+      FirebaseAuth.registerWithEmail(email, password, name).then(
+        function (result) {
+          if (!result.success) {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.classList.remove("btn-loading");
+            }
+            self.showError(result.message);
+          }
+        },
+      );
+    } else {
+      FirebaseAuth.signInWithEmail(email, password).then(function (result) {
+        if (!result.success) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("btn-loading");
+          }
+          self.showError(result.message);
+        }
+      });
+    }
   },
 
   /* ── showError(message) ─────────────────────────────── */
