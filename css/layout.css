@@ -380,9 +380,8 @@
   transition: margin-left var(--transition-slow);
 }
 
-/* Content width constraint for readability */
+/* Content fills available width — grids handle the layout */
 .content-wrap {
-  max-width: 1100px;
   width: 100%;
 }
 
