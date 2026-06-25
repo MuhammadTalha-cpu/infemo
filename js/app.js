@@ -30,6 +30,21 @@ const App = {
       selectedLanguage: Storage.get(Storage.KEYS.LANGUAGE, null),
     });
 
+    /* 3b. Initialize Audio Engine */
+    if (window.AudioEngine) {
+      AudioEngine.init();
+      /* Apply saved speech rate preference */
+      var savedRate = Storage.get(Storage.KEYS.SPEECH_RATE, "normal");
+      AudioEngine.setUserRate(savedRate);
+      /* Set language if one was previously selected */
+      var savedLang = Storage.get(Storage.KEYS.LANGUAGE);
+      if (savedLang) AudioEngine.setLanguage(savedLang);
+      /* Mark body if audio not supported */
+      if (!AudioEngine.isSupported()) {
+        document.body.classList.add("no-audio");
+      }
+    }
+
     /* 4. Initialize Firebase Auth listener */
     if (window.FirebaseAuth) FirebaseAuth.init();
 

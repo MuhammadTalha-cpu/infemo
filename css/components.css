@@ -1001,6 +1001,11 @@
   animation: pulse-audio 0.8s ease infinite;
 }
 
+/* Hide audio buttons if browser doesn't support speech synthesis */
+.no-audio .audio-btn {
+  display: none;
+}
+
 /* ══════════════════════════════════════════════════════════
    LOADING SPINNER
    ══════════════════════════════════════════════════════════ */

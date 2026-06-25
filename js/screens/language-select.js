@@ -126,14 +126,17 @@ var LanguageSelectScreen = {
 
   /* ── selectLanguage(code) ───────────────────────────── */
   selectLanguage(code) {
-    // Save selection to storage and state
+    /* Save selection to storage and state */
     Storage.set(Storage.KEYS.LANGUAGE, code);
     AppState.selectedLanguage = code;
 
-    // Set up language progress if this is first time
+    /* Initialize audio for this language */
+    if (window.AudioEngine) AudioEngine.setLanguage(code);
+
+    /* Set up language progress if this is first time */
     AppState.getLanguageProgress(code);
 
-    // Navigate to dashboard
+    /* Navigate to dashboard */
     Router.navigate("#dashboard");
   },
 };
