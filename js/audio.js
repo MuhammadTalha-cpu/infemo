@@ -192,6 +192,36 @@ var AudioEngine = {
     return this._supported;
   },
 
+  /* ── hasVoiceForLanguage(langCode) ──────────────────────
+       Returns true if any voice matching the language is
+       available on this device.
+    ─────────────────────────────────────────────────────── */
+  hasVoiceForLanguage(langCode) {
+    if (!this._supported) return false;
+    /* Re-fetch voices in case they loaded after init() */
+    var voices = speechSynthesis.getVoices();
+    if (voices.length > 0) this._voices = voices;
+    var prefix = langCode.toLowerCase();
+    return this._voices.some(function (v) {
+      return v.lang.toLowerCase().startsWith(prefix);
+    });
+  },
+
+  /* ── reloadVoices() ─────────────────────────────────────
+       Re-fetches all voices and re-selects for active lang.
+       Call this when a screen first renders audio content.
+    ─────────────────────────────────────────────────────── */
+  reloadVoices() {
+    this._voices = speechSynthesis.getVoices();
+    if (this._activeLanguage) {
+      this._selectedVoice = this._selectBestVoice(
+        this._activeLanguage.voicePreferences,
+        this._activeLanguage.langCode,
+      );
+    }
+    return this._voices.length;
+  },
+
   /* ── getAvailableVoicesForLang(langCode) ────────────────
        Returns all available voices that match a language.
        Useful for debugging what voices a browser has.

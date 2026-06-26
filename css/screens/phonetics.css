@@ -1,0 +1,363 @@
+/* ============================================================
+   INFEMO — PHONETICS SCREEN
+   ============================================================ */
+
+/* ── Tab Content Area ───────────────────────────────────── */
+.phonetics-tab-content {
+  padding-top: var(--space-6);
+}
+
+/* ── Letter Card Grid ───────────────────────────────────── */
+.phonetics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+/* ── Letter Card ────────────────────────────────────────── */
+.letter-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.letter-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+/* ── Letter Display Row ─────────────────────────────────── */
+.letter-display-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.letter-display {
+  font-size: 44px;
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.letter-display .letter-lower {
+  font-size: 36px;
+  opacity: 0.7;
+}
+
+/* ── IPA & English Row ──────────────────────────────────── */
+.letter-meta {
+  margin-bottom: var(--space-3);
+}
+
+.letter-name {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.letter-english {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-snug);
+  margin-top: var(--space-1);
+}
+
+/* ── Example Rows ───────────────────────────────────────── */
+.letter-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.letter-example-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.letter-example-word {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.letter-example-word .highlight {
+  color: var(--primary);
+}
+
+.letter-example-translation {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ── Tip Box ────────────────────────────────────────────── */
+.letter-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  background-color: var(--warning-bg);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.letter-tip-icon {
+  color: var(--warning);
+  flex-shrink: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ── Umlaut Card Extra ──────────────────────────────────── */
+.umlaut-alternate {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  background-color: var(--surface-2);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  display: inline-block;
+  margin-bottom: var(--space-2);
+}
+
+/* ── ß Special Card ─────────────────────────────────────── */
+.special-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.special-card-header {
+  background: linear-gradient(135deg, var(--primary-light), var(--surface-2));
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-6) var(--space-6) var(--space-5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.special-display {
+  font-size: 64px;
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  line-height: 1;
+}
+
+.special-card-body {
+  padding: var(--space-5) var(--space-6);
+}
+
+.special-rules {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.special-rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.special-rule-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ── Combination Cards ──────────────────────────────────── */
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.combo-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+
+.combo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.combo-letters {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  line-height: 1;
+}
+
+.combo-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.combo-description {
+  font-size: var(--text-xs);
+  color: var(--primary);
+  font-weight: var(--weight-medium);
+  margin-bottom: var(--space-2);
+  background-color: var(--primary-light);
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+.combo-english {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+/* ── Stress Rules ───────────────────────────────────────── */
+.stress-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.stress-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.stress-rule-title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stress-rule-title::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 18px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.stress-explanation {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-4);
+}
+
+.stress-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.stress-example-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  min-width: 100px;
+}
+
+.stress-example-word {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.stress-example-word .stressed {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.stress-example-meaning {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Intro Note ─────────────────────────────────────────── */
+.phonetics-intro {
+  background-color: var(--primary-light);
+  border: 1px solid rgba(59, 91, 219, 0.15);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.phonetics-intro i {
+  color: var(--primary);
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .phonetics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .combo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .phonetics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .combo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .phonetics-grid {
+    grid-template-columns: 1fr;
+  }
+}
