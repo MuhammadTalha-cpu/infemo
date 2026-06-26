@@ -1,0 +1,350 @@
+/* ============================================================
+   INFEMO — LEVELS SCREEN
+   Styles for both the All-Levels overview grid and
+   the individual Level Detail (topics) view.
+   ============================================================ */
+
+/* ── All Levels Grid ────────────────────────────────────── */
+.levels-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.level-overview-card {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  cursor: pointer;
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.level-overview-card:hover:not(.level-overview-locked) {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.level-overview-locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.level-overview-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.level-overview-name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  margin-top: var(--space-3);
+}
+
+.level-overview-cert {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.level-overview-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.level-overview-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.level-overview-skill {
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+  color: var(--text-muted);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 2px 6px;
+  letter-spacing: 0.3px;
+}
+
+/* ── Level Detail Header ────────────────────────────────── */
+.level-detail-header {
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  border: 1.5px solid transparent;
+}
+
+.level-detail-left {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.level-detail-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.level-detail-name {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-1);
+}
+
+.level-detail-cert {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.level-detail-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.level-detail-progress-wrap {
+  max-width: 300px;
+}
+
+/* ── Topics Grid ────────────────────────────────────────── */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+/* ── Topic Card ─────────────────────────────────────────── */
+.topic-card {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  cursor: pointer;
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+  position: relative;
+  min-height: 140px;
+}
+
+.topic-card:hover:not(.topic-locked) {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.topic-card-locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.topic-card-complete {
+  border-color: var(--success);
+  background-color: var(--success-bg);
+}
+
+/* Topic card icon area */
+.topic-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.topic-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.topic-card-complete .topic-card-icon {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+
+/* Topic card content */
+.topic-card-name {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  line-height: var(--leading-snug);
+}
+
+.topic-card-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  flex: 1;
+}
+
+.topic-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic-card-lessons {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.topic-card-lessons svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Topic status badges */
+.topic-status-badge {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+.topic-status-new {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+.topic-status-started {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+.topic-status-complete {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.topic-status-locked {
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+/* Lock icon on locked topic cards */
+.topic-card-lock {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  color: var(--text-muted);
+}
+
+.topic-card-lock svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Checkmark on completed topic cards */
+.topic-card-check {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  color: var(--success);
+}
+
+.topic-card-check svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Exam Button ────────────────────────────────────────── */
+.exam-btn-section {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: linear-gradient(135deg, var(--primary-light), var(--surface-2));
+  border: 1px solid rgba(59, 91, 219, 0.2);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.exam-btn-info {
+  flex: 1;
+}
+
+.exam-btn-title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.exam-btn-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* ── Back Button Row ────────────────────────────────────── */
+.level-back-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .levels-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .levels-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .topics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .level-detail-header {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .levels-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+}

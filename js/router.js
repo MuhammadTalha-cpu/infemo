@@ -84,9 +84,11 @@ var Router = {
         ─────────────────────────────────────────────────── */
     if (hash.startsWith("#level-")) {
       const levelId = hash.replace("#level-", "");
-      // Store the level ID in AppState so LevelsScreen.render() can read it
       if (window.AppState) AppState.currentLevel = levelId;
       hash = "#levels";
+    } else if (hash === "#levels") {
+      /* Bare #levels = show all levels overview, not a specific one */
+      if (window.AppState) AppState.currentLevel = null;
     }
 
     // Find the matching route definition
