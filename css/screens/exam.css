@@ -1,0 +1,420 @@
+/* ============================================================
+   INFEMO — EXAM SIMULATOR SCREEN
+   ============================================================ */
+
+/* ── Pre-Exam Intro Card ────────────────────────────────── */
+.exam-intro-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  max-width: 620px;
+  box-shadow: var(--shadow-sm);
+}
+
+.exam-intro-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  gap: var(--space-4);
+}
+
+.exam-intro-title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.exam-intro-meta {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.exam-intro-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  flex-shrink: 0;
+}
+
+.exam-intro-badge svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Stats row */
+.exam-intro-stats {
+  display: flex;
+  align-items: center;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+  gap: 0;
+}
+
+.exam-stat {
+  flex: 1;
+  text-align: center;
+}
+
+.exam-stat-value {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+}
+
+.exam-stat-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: var(--weight-medium);
+}
+
+.exam-stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border);
+  flex-shrink: 0;
+}
+
+/* Sections list */
+.exam-intro-sections {
+  margin-bottom: var(--space-5);
+}
+
+/* Info note */
+.exam-intro-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background-color: var(--primary-light);
+  border: 1px solid rgba(59, 91, 219, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-5);
+}
+
+.exam-intro-note svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Exam Running — Header ──────────────────────────────── */
+.exam-running-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  gap: var(--space-4);
+  position: sticky;
+  top: var(--space-2);
+  z-index: var(--z-base);
+}
+
+.exam-section-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.exam-section-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+}
+
+.exam-section-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.exam-section-english {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: var(--weight-medium);
+}
+
+.exam-timer-block {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.exam-timer-display {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+  min-width: 52px;
+  text-align: right;
+  transition: color var(--transition-base);
+}
+
+/* ── Question Progress Dots ─────────────────────────────── */
+.exam-question-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.exam-q-dots {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.exam-q-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--border);
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.exam-q-dot.active {
+  background-color: var(--primary);
+  transform: scale(1.3);
+}
+
+.exam-q-dot.done {
+  background-color: var(--success);
+}
+
+/* ── Section Description ────────────────────────────────── */
+.exam-section-desc {
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.exam-section-desc-text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* ── Reading Text (Lesen questions) ─────────────────────── */
+.exam-reading-wrap {
+  margin-bottom: var(--space-4);
+}
+
+.exam-reading-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.exam-reading-text {
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  line-height: var(--leading-relaxed);
+  font-family: var(--font);
+  white-space: pre-line;
+}
+
+/* ── Audio Replay Bar ───────────────────────────────────── */
+.exam-audio-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+/* ── MC Option Selected State ───────────────────────────── */
+.exam-mc-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  font-weight: var(--weight-medium);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  text-align: left;
+  background-color: var(--surface);
+  width: 100%;
+  margin-bottom: var(--space-2);
+}
+
+.exam-mc-option:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.exam-mc-option.selected {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.exam-mc-option.selected .mc-option-letter {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* ── Writing Task Styles ────────────────────────────────── */
+.exam-task-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.exam-task-instruction {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-4);
+}
+
+.exam-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.exam-form-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  background-color: var(--primary-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  margin-top: var(--space-4);
+}
+
+/* ── Between Sections Card ──────────────────────────────── */
+.between-sections-card {
+  max-width: 520px;
+  margin: var(--space-8) auto;
+  text-align: center;
+}
+
+/* ── Results Screen ─────────────────────────────────────── */
+.exam-result-banner {
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  text-align: center;
+  margin-bottom: var(--space-6);
+  border: 2px solid transparent;
+}
+
+.exam-result-pass {
+  background: linear-gradient(135deg, var(--success-bg), var(--surface-2));
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.exam-result-fail {
+  background: linear-gradient(135deg, var(--primary-light), var(--surface-2));
+  border-color: rgba(59, 91, 219, 0.2);
+}
+
+.exam-result-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.exam-result-score {
+  font-size: 56px;
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: var(--space-3);
+}
+
+.exam-result-pass .exam-result-score {
+  color: var(--success);
+}
+
+.exam-result-note {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Section results list */
+.exam-section-result {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exam-section-result:last-child {
+  border-bottom: none;
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .exam-running-header {
+    position: static;
+  }
+  .exam-intro-stats {
+    flex-wrap: wrap;
+  }
+  .exam-intro-badge {
+    display: none;
+  }
+  .exam-result-score {
+    font-size: 42px;
+  }
+  .exam-result-banner {
+    padding: var(--space-8) var(--space-5);
+  }
+}
