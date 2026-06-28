@@ -1,0 +1,419 @@
+/* ============================================================
+   INFEMO — FLASHCARDS SCREEN
+   Note: The 3D flip animation (.flip-card, .flip-card-inner,
+   .flip-card-front, .flip-card-back) is in animations.css.
+   This file adds flashcard-specific layout and content styles.
+   ============================================================ */
+
+/* ── Screen Layout ──────────────────────────────────────── */
+.flashcards-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Filter Bar ─────────────────────────────────────────── */
+.fc-filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.fc-filter-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-right: var(--space-1);
+}
+
+/* ── Session Stats Bar ──────────────────────────────────── */
+.fc-session-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+}
+
+.fc-session-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.fc-session-value {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  line-height: 1;
+}
+
+.fc-session-label {
+  font-size: 10px;
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.fc-session-divider {
+  width: 1px;
+  height: 32px;
+  background-color: var(--border);
+}
+
+/* ── Card Container ─────────────────────────────────────── */
+.fc-card-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Front Card Content */
+.fc-front-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+  height: 100%;
+}
+
+.fc-word {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  text-align: center;
+  line-height: var(--leading-tight);
+}
+
+.fc-article-badge {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: calc(-1 * var(--space-2));
+}
+
+.fc-pos-tag {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--text-muted);
+  background-color: var(--surface-2);
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.fc-topic-tag {
+  font-size: var(--text-xs);
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  font-weight: var(--weight-medium);
+}
+
+/* Back Card Content */
+.fc-back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+  height: 100%;
+  padding: var(--space-4);
+}
+
+.fc-translation {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: -0.3px;
+  line-height: var(--leading-tight);
+}
+
+.fc-example-divider {
+  width: 60px;
+  height: 1px;
+  background-color: rgba(59, 91, 219, 0.3);
+}
+
+.fc-example-de {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--primary);
+  text-align: center;
+  line-height: var(--leading-snug);
+}
+
+.fc-example-en {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+.fc-example-audio-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ── Rating Buttons ─────────────────────────────────────── */
+.fc-ratings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.fc-rating-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+  background-color: var(--surface);
+  font-family: var(--font);
+}
+
+.fc-rating-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.fc-rating-btn:active {
+  transform: translateY(0);
+}
+
+.fc-rating-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.fc-rating-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.fc-rating-interval {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Rating button colors */
+.fc-rating-0 {
+  border-color: var(--error);
+}
+.fc-rating-0:hover {
+  background-color: var(--error-bg);
+  border-color: var(--error);
+}
+.fc-rating-1 {
+  border-color: var(--warning);
+}
+.fc-rating-1:hover {
+  background-color: var(--warning-bg);
+  border-color: var(--warning);
+}
+.fc-rating-2 {
+  border-color: var(--primary);
+}
+.fc-rating-2:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+}
+.fc-rating-3 {
+  border-color: var(--success);
+}
+.fc-rating-3:hover {
+  background-color: var(--success-bg);
+  border-color: var(--success);
+}
+
+/* ── Reveal Hint ────────────────────────────────────────── */
+.fc-reveal-hint {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.fc-reveal-hint svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── No Cards State ─────────────────────────────────────── */
+.fc-no-cards {
+  width: 100%;
+  padding: var(--space-10) var(--space-6);
+  text-align: center;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+/* ── Session Complete ───────────────────────────────────── */
+.fc-complete {
+  width: 100%;
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+}
+
+.fc-complete-emoji {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: var(--space-4);
+  animation: scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fc-complete-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  margin-bottom: var(--space-2);
+}
+
+.fc-complete-sub {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.fc-complete-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.fc-complete-stat {
+  text-align: center;
+}
+
+.fc-complete-value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+}
+
+.fc-complete-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+}
+
+.fc-complete-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Mastery Distribution Bar ───────────────────────────── */
+.fc-mastery-bar {
+  width: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+
+.fc-mastery-title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.fc-mastery-track {
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-2);
+  display: flex;
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+}
+
+.fc-mastery-segment {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.fc-mastery-legend {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.fc-mastery-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.fc-mastery-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .fc-ratings {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fc-word {
+    font-size: var(--text-2xl);
+  }
+
+  .fc-complete-stats {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
