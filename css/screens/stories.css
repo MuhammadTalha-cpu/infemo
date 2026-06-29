@@ -1,0 +1,430 @@
+/* ============================================================
+   INFEMO — STORIES & POEMS SCREEN
+   ============================================================ */
+
+/* ── Stories Grid ───────────────────────────────────────── */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+/* ── Story Card ─────────────────────────────────────────── */
+.story-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  cursor: pointer;
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.story-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.story-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.story-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.story-type-story {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.story-type-poem {
+  background-color: #f3e8ff;
+  color: #7c3aed;
+}
+
+[data-theme="dark"] .story-type-poem {
+  background-color: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
+}
+
+.story-card-read-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  color: var(--success);
+  background-color: var(--success-bg);
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.story-card-read-badge svg {
+  width: 10px;
+  height: 10px;
+}
+
+.story-card-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+  line-height: var(--leading-tight);
+}
+
+.story-card-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.story-card-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+  flex: 1;
+}
+
+.story-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.story-card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.story-card-meta-item svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Reader View ────────────────────────────────────────── */
+.story-reader {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.story-reader-header {
+  margin-bottom: var(--space-6);
+}
+
+.story-reader-type-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.story-reader-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-1);
+}
+
+.story-reader-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: var(--space-4);
+}
+
+.story-reader-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.story-reader-meta svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── Story Content ──────────────────────────────────────── */
+.story-content {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+/* Paragraphs */
+.story-paragraph {
+  margin-bottom: var(--space-5);
+}
+
+.story-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Poem stanzas */
+.story-stanza {
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-4);
+  border-left: 3px solid #7c3aed;
+}
+
+.story-stanza:last-child {
+  margin-bottom: 0;
+}
+
+/* Individual lines */
+.story-line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.story-line:hover {
+  background-color: var(--surface-2);
+  margin: 0 calc(-1 * var(--space-2));
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+.story-line-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.story-line-de {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.story-line-en {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  margin-top: 1px;
+}
+
+/* Poem lines — slightly larger */
+.story-stanza .story-line-de {
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.story-stanza .story-line-en {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ── Vocabulary Notes ───────────────────────────────────── */
+.story-vocab-section {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+}
+
+.story-vocab-header {
+  background-color: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.story-vocab-header svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+}
+
+.story-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.story-vocab-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  transition: background-color var(--transition-fast);
+}
+
+.story-vocab-item:nth-child(even) {
+  border-right: none;
+}
+
+.story-vocab-item:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.story-vocab-item:hover {
+  background-color: var(--surface-2);
+}
+
+.story-vocab-word {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--primary);
+  min-width: 120px;
+}
+
+.story-vocab-translation {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* ── Culture Note ───────────────────────────────────────── */
+.story-culture-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  background: linear-gradient(135deg, var(--primary-light), var(--surface-2));
+  border: 1px solid rgba(59, 91, 219, 0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.story-culture-flag {
+  font-size: 32px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.story-culture-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.story-culture-title {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-2);
+}
+
+.story-culture-text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* ── Listen All Button ──────────────────────────────────── */
+.story-listen-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.story-listen-hint {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.story-listen-hint svg {
+  width: 14px;
+  height: 14px;
+  color: var(--primary);
+}
+
+/* ── Action Row ─────────────────────────────────────────── */
+.story-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-content {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .story-vocab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-vocab-item {
+    border-right: none;
+  }
+
+  .story-vocab-item:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .story-vocab-item:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-reader-title {
+    font-size: var(--text-2xl);
+  }
+}
