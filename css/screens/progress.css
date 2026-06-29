@@ -1,0 +1,427 @@
+/* ============================================================
+   INFEMO — MY PROGRESS SCREEN
+   ============================================================ */
+
+/* ── Overview Stats Grid ────────────────────────────────── */
+.progress-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.progress-stat-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.progress-stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.progress-stat-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.progress-stat-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.progress-stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: var(--weight-medium);
+}
+
+.progress-stat-sub {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Streak Calendar ────────────────────────────────────── */
+.streak-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.streak-calendar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.streak-day-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.streak-days-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.streak-day {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--text-muted);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+  flex-shrink: 0;
+}
+
+.streak-day.studied {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  font-weight: var(--weight-bold);
+}
+
+.streak-day.studied.today {
+  background-color: var(--success);
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.streak-day.today:not(.studied) {
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: var(--weight-bold);
+}
+
+.streak-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.streak-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.streak-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* ── Level Progress Section ─────────────────────────────── */
+.level-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.level-progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow var(--transition-base);
+  cursor: pointer;
+}
+
+.level-progress-row:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.level-progress-row.locked-level {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.level-progress-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.level-progress-name {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.level-progress-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.level-progress-pct {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--text-muted);
+  min-width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Vocabulary Mastery Section ─────────────────────────── */
+.vocab-mastery-display {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.vocab-mastery-number {
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+
+.vocab-mastery-big {
+  font-size: 72px;
+  font-weight: var(--weight-bold);
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.vocab-mastery-total {
+  font-size: var(--text-xl);
+  color: var(--text-muted);
+  font-weight: var(--weight-medium);
+  margin-top: var(--space-2);
+}
+
+.vocab-mastery-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.vocab-mastery-cell {
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.vocab-mastery-cell-value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  margin-bottom: var(--space-1);
+}
+
+.vocab-mastery-cell-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+}
+
+/* ── Achievements ───────────────────────────────────────── */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.achievement-card {
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transition:
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.achievement-card.earned {
+  border-color: var(--warning);
+  background: linear-gradient(135deg, #fff8e7, var(--surface));
+}
+
+[data-theme="dark"] .achievement-card.earned {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), var(--surface));
+}
+
+.achievement-card.locked {
+  opacity: 0.45;
+  filter: grayscale(0.6);
+}
+
+.achievement-emoji {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.achievement-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  line-height: var(--leading-snug);
+}
+
+.achievement-desc {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: var(--leading-snug);
+}
+
+.achievement-earned-label {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--warning);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ── Exam History ───────────────────────────────────────── */
+.exam-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.exam-history-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.exam-history-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.exam-history-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.exam-history-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.exam-history-date {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.exam-history-score {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  flex-shrink: 0;
+}
+
+.exam-history-badge {
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-full);
+  padding: 2px 8px;
+  flex-shrink: 0;
+}
+
+.exam-history-badge.pass {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+
+.exam-history-badge.fail {
+  background-color: var(--error-bg);
+  color: var(--error);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .progress-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vocab-mastery-breakdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .progress-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .streak-day {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .achievements-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vocab-mastery-breakdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
